@@ -1,4 +1,4 @@
-from Ch06_Stack_Queue.Demo.ArrayStack import ArrayStack
+from structure.Ch06_Stack_Queue.Stack.ArrayStack import ArrayStack
 
 
 def reverseList(L: list)->list:

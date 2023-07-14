@@ -19,6 +19,16 @@ class ArrayQueue:
         """Return True if the queue is empty."""
         return self._size == 0
 
+    def _resize(self, cap):
+        """Resize to a new list of capacity >= len(self)"""
+        old = self._data
+        self._data = [None] * cap
+        walk = self._front
+        for k in range(self._size):
+            self._data[k] = old[walk]
+            walk = (walk + 1) % len(old)
+        self._front = 0
+
     def first(self):
         """Return but do not remove the element at the front of the queue.
 
@@ -48,13 +58,3 @@ class ArrayQueue:
         avail = (self._front + self._size) % len(self._data)
         self._data[avail] = e
         self._size += 1
-
-    def _resize(self, cap):
-        """Resize to a new list of capacity >= len(self)"""
-        old = self._data
-        self._data = [None] * cap
-        walk = self._front
-        for k in range(self._size):
-            self._data[k] = old[walk]
-            walk = (walk + 1) % len(old)
-        self._front = 0

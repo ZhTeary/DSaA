@@ -1,4 +1,4 @@
-from ArrayStack import ArrayStack
+from structure.array.ArrayStack import ArrayStack
 
 
 def reverse_file(filename):

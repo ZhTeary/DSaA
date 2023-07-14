@@ -1,4 +1,4 @@
-import ArrayStack
+from structure.array.ArrayStack import ArrayStack
 
 
 def is_matched(expr):
