@@ -1,5 +1,6 @@
-from queue import Empty
-
+class Empty(Exception):
+    """Error attempting to access an element from an empty container."""
+    pass
 
 class LinkedStack:
     """LIFO Stack implement using a singly linked list for storage."""

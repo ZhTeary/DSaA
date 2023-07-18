@@ -1,9 +1,12 @@
 """循环链表实现循环队列"""
-from queue import Empty
+
+
+class Empty(Exception):
+    """Error attempting to access an element from an empty container."""
+    pass
 
 
 class CircularQueue:
-
     # ---------------------------------------------------------------------
     class _Node:
         """Lightweight,nonpublic class for storing a singly linked node."""
@@ -17,8 +20,8 @@ class CircularQueue:
 
     def __init__(self):
         """Create an empty queue."""
-        self._tail = None   # will represent tail of queue
-        self._size = 0      # number of queue elements
+        self._tail = None  # will represent tail of queue
+        self._size = 0  # number of queue elements
 
     def __len__(self):
         """Return the number of elements in the queue."""

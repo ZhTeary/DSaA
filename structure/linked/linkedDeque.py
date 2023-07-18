@@ -1,5 +1,9 @@
 """双向链表实现双向队列"""
-from queue import Empty
+
+
+class Empty(Exception):
+    """Error attempting to access an element from an empty container."""
+    pass
 
 
 class _DoublyLinkedBase:
