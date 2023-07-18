@@ -60,10 +60,19 @@ class Tree:
         else:
             return 1 + self.depth(self.parent(p))
 
-    def _height(self):
-        """Return the height of the tree.
+    def _height(self,p):
+        """Return the height of the tree. O(n)
 
         树T中节点p的高度的定义如下：
         - 如果p是一个叶子节点，那么它的高度为0
         - 否则，p的高度是他孩子节点中的最大高度+1
         """
+        if self.is_leaf(p):
+            return 0
+        else:
+            return 1 + max(self.height(c) for c in self.children(p))
+
+    def height(self, p=None):
+        if p is None:
+            return 0
+        return self._height(p)
